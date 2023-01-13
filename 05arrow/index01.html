@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //기본적으로 익명함수를 대체한다
+
+        // var a  = function() {
+        //     console.log("a실행");
+        // }
+
+        // a(); //위에서 당겨쓰는 호이스팅이 불가능하다
+
+        let a = () => {
+            console.log("a실행");
+        }
+        a();
+
+        /*
+        문법1.
+        코드가 한줄이면 {} 생략이 된다
+        {}를 생략하면 자동으로 return이 붙는다
+        */
+
+        let b1 = () => console.log("b실행");
+        b1();
+
+        let b2 = (a,b,c) => a + b + c;
+        console.log(b2(1,2,3)); //6
+
+        let b3 = (a = 10) => a + 100;
+        console.log(b3()); //110
+        console.log(b3(20)); //120
+
+        /*
+        문법2.
+        매개변수가 한개라면 ()가 생략된다
+        */
+
+        let c1 = a => a + 10;
+        console.log(c1(10)); //20
+
+        /*
+        문법3.
+        객체를 반환할 때는 ()로 묶어준다
+        */
+
+        let c2 = () => {
+            return {key: 1, age: 20}
+        };
+
+        let c3 = () => ({key: 1, age: 20}); //객체를 반환
+
+        console.log(c3());
+
+    
+        //
+        setInterval(function() {
+            console.log(1);
+        }, 1000);
+
+        setInterval(() => console.log(1), 1000);
+
+        
+
+
+    </script>
+    
+</body>
+</html>
